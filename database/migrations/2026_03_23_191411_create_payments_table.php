@@ -1,10 +1,14 @@
 <?php
 
-use App\Enums\PaymentStatusEnum;
-use App\Enums\PaymentTypeEnum;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+
+
+use App\Enums\PaymentStatusEnum;
+use App\Enums\PaymentTypeEnum;
+use App\Enums\PaymentMethodEnum;
 
 return new class extends Migration
 {
@@ -36,11 +40,9 @@ return new class extends Migration
 
             $table->enum('payment_type', PaymentTypeEnum::values())->default(PaymentTypeEnum::COMMITMENT_FEE->value);
 
-            $table->string('payment_status', PaymentStatusEnum::values())->default(PaymentStatusEnum::PENDING->value);
-            // App\Enums\PaymentStatusEnum
+            $table->enum('payment_status', PaymentStatusEnum::values())->default(PaymentStatusEnum::PENDING->value);
 
-            $table->string('payment_method')->nullable();
-            // bank_transfer, crypto, escrow
+            $table->enum('payment_method', PaymentMethodEnum::values())->default(PaymentMethodEnum::BANK_TRANSFER->value);
 
             $table->string('reference')->nullable();
 
