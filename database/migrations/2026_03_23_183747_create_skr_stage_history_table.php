@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('skr_stage_history', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('skr_id')->constrained('shipment_knowledge_record')->cascadeOnDelete();
+            $table->foreignId('skr_id')->constrained('shipment_knowledge_records')->cascadeOnDelete();
             $table->string('from_stage')->nullable();
             $table->string('to_stage');
             $table->foreignId('changed_by')->constrained('users')->cascadeOnDelete();

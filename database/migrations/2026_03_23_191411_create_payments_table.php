@@ -23,7 +23,7 @@ return new class extends Migration
             $table->uuid('uuid')->unique();
 
             $table->foreignId('skr_id')
-                ->constrained('shipment_knowledge_record')
+                ->constrained('shipment_knowledge_records')
                 ->cascadeOnDelete();
 
             $table->foreignId('spa_id')

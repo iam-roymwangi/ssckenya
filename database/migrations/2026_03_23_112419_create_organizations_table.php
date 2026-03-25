@@ -15,7 +15,7 @@ return new class extends Migration
     {
     Schema::create('organizations', function (Blueprint $table) {
         $table->id();
-        $table->uuid('uuid')->unique();
+        $table->uuid('uuid')->unique(); // UUIDs will be exposed to endpoints instead of primary keys, enhancing security.
         $table->string('name');
         $table->enum('organization_type', OrganizationTypeEnum::values());  //Enum
         $table->string('registration_number')->nullable();

@@ -2,11 +2,9 @@
 namespace App\Enums;
 enum LabTestTypeEnum: string
 {
+    use \App\Traits\EnumHelpers; 
+
     case XRF = 'xrf';
     case FIRE_ASSAY = 'fire_assay';
 
-    public static function values(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
 }
